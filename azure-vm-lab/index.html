@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Azure Virtual Machine Administration Lab | Austin Montgomery</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+font-family:Arial,sans-serif;
+color:#EAEAEA;
+background:linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),url('../../../background.jpg');
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+}
+
+a{text-decoration:none}
+
+nav{
+display:flex;
+justify-content:flex-end;
+gap:15px;
+padding:25px 50px
+}
+
+.nav-btn{
+color:#EAEAEA;
+border:1px solid #EAEAEA;
+padding:10px 18px;
+border-radius:6px;
+transition:.25s
+}
+
+.nav-btn:hover{
+background:#EAEAEA;
+color:#111
+}
+
+.azure{
+color:#0078D4;
+border-color:#0078D4
+}
+
+.azure:hover{
+background:#0078D4;
+color:white
+}
+
+.aws{
+color:#FF9900;
+border-color:#FF9900
+}
+
+.aws:hover{
+background:#FF9900;
+color:black
+}
+
+.hero{
+text-align:center;
+padding:80px 30px 50px
+}
+
+.hero h1{
+font-size:3.5rem;
+color:white;
+margin-bottom:15px
+}
+
+.hero p{
+color:#B8B8B8;
+font-size:1.1rem
+}
+
+.section{
+max-width:1100px;
+margin:30px auto;
+padding:40px;
+background:rgba(15,15,15,.8);
+border-radius:18px
+}
+
+.section h2{
+color:#0078D4;
+margin-bottom:20px
+}
+
+.section p,.section li{
+line-height:1.8
+}
+
+.project-image{
+width:100%;
+border-radius:12px;
+margin:20px 0;
+border:1px solid rgba(255,255,255,.1)
+}
+
+.skills{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px
+}
+
+.card{
+background:rgba(255,255,255,.04);
+padding:15px;
+border-radius:10px
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#999
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="../../../index.html" class="nav-btn">Home</a>
+
+<a href="../index.html" class="nav-btn azure">Azure</a>
+
+<a href="../../aws/index.html" class="nav-btn aws">AWS</a>
+
+<a href="../../../resume/index.html" class="nav-btn">Resume</a>
+
+</nav>
+
+<section class="hero">
+
+<h1>Azure Virtual Machine Administration Lab</h1>
+
+<p>
+Windows Server deployment, networking, IIS configuration,
+monitoring, and cost management using Microsoft Azure.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Project Overview</h2>
+
+<p>
+This project demonstrates the deployment and administration of a Windows Server 2022 virtual machine in Microsoft Azure. The environment includes virtual networking, security groups, public connectivity, IIS web server configuration, monitoring, and cost governance to provide hands-on experience with core Azure administration concepts.
+</p>
+
+</section>
+
+
+<section class="section">
+
+<h2>Architecture Diagram</h2>
+
+<img class="project-image"
+src="images/architecture-diagram.png">
+
+<p>
+The environment consists of a Windows Server 2022 virtual machine deployed within an Azure Virtual Network and protected by Network Security Groups. Public connectivity was provided through a Public IP address and HTTP access was enabled to host the IIS default website. Monitoring and cost governance were implemented using Azure Monitor and Azure Cost Management.
+</p>
+
+</section>
+<section class="section">
+
+<h2>Step 1 – Create Resource Group</h2>
+
+<img class="project-image"
+src="images/step1-resource-group.png">
+
+<p>
+Created a dedicated resource group named <strong>rg-vm-lab</strong> to logically organize and manage all resources associated with the project.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Step 2 – Configure Virtual Network</h2>
+
+<img class="project-image"
+src="images/step2-vnet.png">
+
+<img class="project-image"
+src="images/step2-vnet-review.png">
+
+<p>
+Configured a virtual network to provide private connectivity between Azure resources and establish the network foundation for the virtual machine environment.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Step 3 – Create Subnet</h2>
+
+<img class="project-image"
+src="images/step3-subnet.png">
+
+<p>
+Created a subnet to provide IP addressing and separation for the Windows Server virtual machine.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Step 4 – Create Network Security Group</h2>
+
+<img class="project-image"
+src="images/step4-nsg.png">
+
+<p>
+Implemented network security controls using an Azure Network Security Group to manage inbound and outbound traffic.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Step 5 – Configure Remote Desktop Access</h2>
+
+<img class="project-image"
+src="images/step5-rdp-rule.png">
+
+<p>
+Created an inbound rule allowing Remote Desktop Protocol traffic on TCP port 3389 to enable secure administrative access to the server.
+</p>
+
+</section>
+<section class="section">
+
+<h2>Step 6 – Create Public IP Address</h2>
+
+<img class="project-image"
+src="images/step6-public-ip.png">
+
+<p>
+Configured a public IP address to provide external connectivity to the virtual machine and enable access from outside the Azure environment.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Step 7 – Deploy Windows Server 2022 Virtual Machine</h2>
+
+<img class="project-image"
+src="images/step7-create-vm.png">
+
+<img class="project-image"
+src="images/step7-networking.png">
+
+<img class="project-image"
+src="images/step7-review.png">
+
+<p>
+Provisioned a Windows Server 2022 virtual machine and associated networking resources to create the foundation of the lab environment.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Step 8 – Verify Deployment</h2>
+
+<img class="project-image"
+src="images/step8-vm-overview.png">
+
+<p>
+Verified successful deployment and confirmed that the virtual machine was operational and ready for administration.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Step 9 – Connect to the Virtual Machine</h2>
+
+<img class="project-image"
+src="images/step9-rdp-connect.png">
+
+<p>
+Established administrative access to the Windows Server 2022 virtual machine using Remote Desktop Protocol.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Step 10 – Install IIS</h2>
+
+<img class="project-image"
+src="images/step10-install-iis.png">
+
+<p>
+Installed Internet Information Services (IIS) to provide web server capabilities and host a test website within the virtual machine.
+</p>
+
+</section>
+<section class="section">
+
+<h2>Step 11 – Verify Local IIS Operation</h2>
+
+<img class="project-image"
+src="images/step11-iis-localhost.png">
+
+<p>
+Confirmed that IIS was functioning correctly within the virtual machine before enabling public access. This verification ensured the web server was operating properly prior to modifying network security rules.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Step 12 – Configure HTTP Access</h2>
+
+<img class="project-image"
+src="images/step12-http-rule.png">
+
+<p>
+Created an inbound rule allowing HTTP traffic on TCP port 80. During testing, an additional Network Security Group automatically created by Azure was identified and configured appropriately, allowing successful external access to the IIS web server.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Step 13 – Verify Public Website Access</h2>
+
+<img class="project-image"
+src="images/step13-iis-public.png">
+
+<p>
+Confirmed successful external connectivity by accessing the IIS default page using the virtual machine's public IP address. This validated both IIS configuration and network connectivity.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Step 14 – Configure Azure Monitor Alert</h2>
+
+<img class="project-image"
+src="images/step14-monitor-alert.png">
+
+<p>
+Configured monitoring and alerting to improve operational awareness and resource visibility. Alert rules were created to notify administrators when defined thresholds are exceeded.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Step 15 – Configure Cost Management Budget</h2>
+
+<img class="project-image"
+src="images/step15-budget.png">
+
+<p>
+Implemented a monthly budget and spending alerts to demonstrate cost governance and help prevent unexpected cloud expenses. Budget notifications provide visibility into resource consumption and spending trends.
+</p>
+
+</section>
+<section class="section">
+
+<h2>Skills Demonstrated</h2>
+
+<div class="skills">
+
+<div class="card">
+Azure Administration
+</div>
+
+<div class="card">
+Windows Server 2022 Administration
+</div>
+
+<div class="card">
+Azure Virtual Machines
+</div>
+
+<div class="card">
+Virtual Networking
+</div>
+
+<div class="card">
+Network Security Groups
+</div>
+
+<div class="card">
+Public IP Configuration
+</div>
+
+<div class="card">
+IIS Web Server Administration
+</div>
+
+<div class="card">
+Azure Monitor
+</div>
+
+<div class="card">
+Cost Management and Budgeting
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2>Lessons Learned</h2>
+
+<p>
+This project reinforced the importance of networking, security controls, monitoring, and cost governance when administering cloud infrastructure. It also provided practical experience with Windows Server administration, IIS configuration, and troubleshooting Azure networking issues.
+</p>
+
+<p>
+During testing, an additional Network Security Group created automatically by Azure was discovered and configured appropriately. This experience highlighted the importance of understanding how Azure resources interact and demonstrated practical troubleshooting techniques commonly encountered in cloud environments.
+</p>
+
+<p>
+The project provided valuable hands-on experience with core Azure administration concepts while building foundational skills for AZ-104 and future cloud engineering roles.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>Project Outcome</h2>
+
+<p>
+The project successfully delivered a Windows Server 2022 virtual machine hosted in Microsoft Azure with secure networking, IIS web services, monitoring, and cost management capabilities.
+</p>
+
+<p>
+Through this lab, I gained practical experience deploying and managing cloud infrastructure, configuring security controls, implementing monitoring solutions, and applying cost governance principles.
+</p>
+
+<p>
+This environment now serves as a foundation for future Azure administration, identity, networking, and DevOps projects as I continue building toward the AZ-104 certification and a career in cloud engineering.
+</p>
+
+</section>
+
+<footer>
+
+© 2026 Austin Montgomery
+
+</footer>
+
+</body>
+</html>
